@@ -1,0 +1,12 @@
+flask
+opencv-python-headless
+numpy
+pandas
+matplotlib
+easyocr
+imutils
+pytesseract
+ultralytics
+torch
+openpyxl
+gspread
