@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Previous Captures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: Arial;
+            background: #f7f7f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #1976d2;
+            color: white;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #1976d2;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📂 Previous Captures</h2>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Timestamp</th>
+                <th>Image Name</th>
+                <th>Car Number</th>
+                <th>Car Confidence</th>
+                <th>Slot Number</th>
+                <th>Slot Confidence</th>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.username }}</td>
+                <td>{{ row.timestamp }}</td>
+                <td>{{ row.image_name }}</td>
+                <td>{{ row.car_number }}</td>
+                <td>{{ row.car_confidence }}</td>
+                <td>{{ row.slot_number }}</td>
+                <td>{{ row.slot_confidence }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/">⬅ Back to Home</a>
+    </div>
+</body>
+</html>
