@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Detection App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: #f7f7f7;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            padding: 12px;
+            margin: 10px 0;
+            width: 90%;
+            max-width: 400px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background: #1976d2;
+            color: white;
+        }
+        .secondary {
+            background: #2e7d32;
+        }
+        .history {
+            background: #6a1b9a;
+        }
+        .upload-box {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px dashed #aaa;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🚗 Parking Detection App</h2>
+        <p>Capture or upload image for plate and slot detection</p>
+
+        <form action="/set_user" method="POST">
+            <input type="text" name="username" placeholder="Enter username" required>
+            <br>
+            <button type="submit">Save Username</button>
+        </form>
+
+        <hr>
+
+        <h3>Capture Options</h3>
+
+        <!-- Native camera app -->
+        <form action="/upload_capture" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" capture="environment" required>
+            <br>
+            <button class="secondary" type="submit">Open Camera App & Capture</button>
+        </form>
+
+        <br>
+
+        <!-- Fullscreen camera page -->
+        <form action="/camera" method="GET">
+            <button type="submit">Open Full Screen Camera</button>
+        </form>
+
+        <div class="upload-box">
+            <h3>Or Upload Existing Image</h3>
+            <form action="/upload_capture" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <br>
+                <button type="submit">Upload Image</button>
+            </form>
+        </div>
+
+        <br>
+
+        <form action="/history" method="GET">
+            <button class="history" type="submit">View Previous Captures</button>
+        </form>
+    </div>
+</body>
+</html>
